@@ -1,0 +1,1460 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: "IOC IntelliTrail Settings"
+  description: "API Specs for Intellilinen Settings.
+                This will include an API from portal-admin to get all the necessary
+                data for hierarchy dropdown functionality.
+                This API will be the same API of portal-admin API
+                '/api/v1/portal-admin/hierarchies/global_account_id'
+                url= http://docs.portaladminconsole.apiary.io/#reference/0/apiv1portal-adminhierarchiesglobalaccountid/get"
+  contact:
+    name: Philroy Pereira
+    email: philroy.pereira@sealedair.com
+    url: http://sealedair.com
+host: AWS_HOST
+basePath: /api/v1/intelliTrail/global-accounts
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /threshold/{threshold_id}/set-active:
+    put:
+      description: ' activate or deactivate threshold_id'
+      parameters:
+        - in: path
+          name: threshold_id
+          description: threshold id
+          required: true
+          type: string
+          default: "123"
+        - in: body
+          name: Shift
+          required: true
+          schema:
+            $ref: '#/definitions/requestactivethreshold'
+        - name: x-api-key
+          in: header
+          type: string
+          required: true
+          default: 979dumKkqJoaARJo6W8zobAGdHVDKI9g13zxcXc0
+      responses:
+        200:
+          description: successfully active or deactivate thresholds
+          schema:
+            $ref: '#/definitions/responseShiftSetting200'
+        
+  
+  /{global_account_id}/threshold:
+    post:
+      description: 'Create threshold settings'
+      parameters:
+        - in: path
+          name: global_account_id
+          description: global account id
+          required: true
+          type: string
+          default: "123"
+        - in: query
+          name: overwrite
+          description: On creating a new Shift plan,
+                      If one or more site already assigned to
+                      other shift than there will be an error
+                      httpStatus 400 and an alert box will be displayed
+                      to user to overwrite or not, If user click yes,
+                      than 'overwrite=true' will be appended to the url.
+                      Than 'active' field with current date will be
+                      set to the sites associated to older shift plan and
+                      the sites will be associated with the new Shift plan.
+          required: true
+          type: boolean
+          default: false
+        - in: body
+          name: Shift
+          required: true
+          schema:
+            $ref: '#/definitions/requestShiftSettings'
+        - name: x-api-key
+          in: header
+          type: string
+          required: true
+          default: 979dumKkqJoaARJo6W8zobAGdHVDKI9g13zxcXc0
+      responses:
+        200:
+          description: Successfully Created threshold for the machine
+          schema:
+            $ref: '#/definitions/responseShiftSetting200'
+        400:
+          description: 'On Submit if selected Site already is Assigned to another Shift, than HTTP status code 400 and message
+                        and also return the list of site ids that are assigned to other shifts.'
+          schema:
+            $ref: '#/definitions/responseShiftSetting400'
+
+  /{global_account_id}/shift-plans/{threshold_id}:
+    put:
+      description: 'Update threhold  for machines'
+      parameters:
+        - in: path
+          name: global_account_id
+          description: global account id
+          required: true
+          type: string
+          default: "123"
+        - in: path
+          name: threshold_id
+          description: Update with threshold_id
+          required: true
+          type: string
+          default: "a385b337-a58f-4c2d-9ed3-2354ae4ad186"
+        - in: body
+          name: body
+          description: required parameters to update a thresholds
+          required: true
+          schema:
+            $ref: '#/definitions/requestUpdateShift'
+        - name: x-api-key
+          in: header
+          type: string
+          required: true
+          default: 979dumKkqJoaARJo6W8zobAGdHVDKI9g13zxcXc0
+      responses:
+        200:
+          description: Update name and thresholds of existing machine thresholds
+          schema:
+            $ref: '#/definitions/responseUpdateShift'
+    delete:
+      description: 'Delete will Soft Delete and set the “deleted_at” 
+                    field will be updated to the current time.'
+      parameters:
+        - in: path
+          name: global_account_id
+          description: global account id
+          required: true
+          type: string
+          default: "123"
+        - in: path
+          name: threshold_id
+          description: Delete threshold by threshold_id
+          required: true
+          type: string
+          default: ""
+        - name: x-api-key
+          in: header
+          type: string
+          required: true
+          default: 979dumKkqJoaARJo6W8zobAGdHVDKI9g13zxcXc0
+      responses:
+        200:
+          description: Successful Shift Deletion
+          schema:
+            $ref: '#/definitions/responseDeleteShift'
+#---------**********************************************----------------------------------
+#---------**********************************************----------------------------------
+#---------**********************************************----------------------------------
+#---------**********************************************----------------------------------
+#---------**********************************************----------------------------------
+#---------**********************************************----------------------------------
+#---------**********************************************----------------------------------
+#---------**********************************************----------------------------------
+#---------**********************************************----------------------------------
+#---------**********************************************----------------------------------
+#---------**********************************************----------------------------------
+#---------**********************************************----------------------------------
+#---------**********************************************----------------------------------
+#---------**********************************************----------------------------------
+
+  /{global_account_id}/thresholds:
+    get:
+      description: 'Get all the threshold records for a global
+                    account whose deleted_at is blank'
+      parameters:
+        - in: path
+          name: global_account_id
+          description: global account id
+          required: true
+          type: string
+          default: "123"
+        - name: x-api-key
+          in: header
+          type: string
+          required: true
+          default: 979dumKkqJoaARJo6W8zobAGdHVDKI9g13zxcXc0
+      responses:
+        200:
+          description: Threshold list of sites accessible to the admin user
+          schema:
+            $ref: '#/definitions/responceGetThresholdSettings'
+
+  /{global_account_id}/thresholds/{threshold_id}:
+    get:
+      description: 'Get single threshold record for a global
+                    account whose deleted_at is blank
+                    https://seedigital.atlassian.net/browse/DCPORTAL-3461'
+      parameters:
+        - in: path
+          name: global_account_id
+          description: global account id
+          required: true
+          type: string
+          default: "123"
+        - in: path
+          name: threshold_id
+          description: Update with threshold id
+          required: true
+          type: string
+          default: "111"
+        - name: x-api-key
+          in: header
+          type: string
+          required: true
+          default: 979dumKkqJoaARJo6W8zobAGdHVDKI9g13zxcXc0
+      responses:
+        200:
+          description: Threshold list of sites accessible to the admin user
+          schema:
+            $ref: '#/definitions/responceGetSingleThresholdSettings'
+    put:
+      description: 'Update threshold data (Same API for updating
+                    active/inactive & Update form). For Active/Inactive
+                    request object will only contain active = true/false,
+                    and for update form the entire object with the
+                    new values will be passed in request object.
+                    https://seedigital.atlassian.net/browse/DCPORTAL-3460, https://seedigital.atlassian.net/browse/DCPORTAL-3461'
+      parameters:
+        - in: path
+          name: global_account_id
+          description: global account id
+          required: true
+          type: string
+          default: "123"
+        - in: path
+          name: threshold_id
+          description: Update with threshold id
+          required: true
+          type: string
+          default: "111"
+        - in: query
+          name: overwrite
+          description: On updating a Threshold,
+                      If one or more site already assigned to
+                      other threshold than there will be an error
+                      httpStatus 400 and an alert box will be displayed
+                      to user to overwrite or not, If user click yes,
+                      than 'overwrite=true' will be appended to the url.
+                      Than 'deleted_at' field with current date will be
+                      set to the sites associated to older Threshold and
+                      the sites will be associated with the new Threshold.
+          required: true
+          type: boolean
+        - in: body
+          name: body
+          description: required parameters to update a unit preset
+          required: true
+          schema:
+            $ref: '#/definitions/requestThresholdSettings'
+        - name: x-api-key
+          in: header
+          type: string
+          required: true
+          default: 979dumKkqJoaARJo6W8zobAGdHVDKI9g13zxcXc0
+      responses:
+        200:
+          description: Successfully Updated Threshold Setting
+          schema:
+            $ref: '#/definitions/responseUpdateThresholdSetting200'
+        400:
+          description: On Submit if selected Site already is Assigned
+                      to another Threshold or Threshold name already
+                      exists, than HTTP status code 400 and message.
+          schema:
+            $ref: '#/definitions/responseThresholdSetting400'
+    delete:
+      description: 'Delete will Soft Delete and set the “deleted_at”
+                    field will be updated to the current time.
+                    https://seedigital.atlassian.net/browse/DCPORTAL-3460'
+      parameters:
+        - in: path
+          name: global_account_id
+          description: global account id
+          required: true
+          type: string
+          default: "123"
+        - in: path
+          name: threshold_id
+          description: Update with threshold id
+          required: true
+          type: string
+          default: "111"
+        - name: x-api-key
+          in: header
+          type: string
+          required: true
+          default: 979dumKkqJoaARJo6W8zobAGdHVDKI9g13zxcXc0
+      responses:
+        200:
+          description: Successful Threshold Deletion
+          schema:
+            $ref: '#/definitions/responseDeleteThreshold'
+
+definitions:
+  requestactivethreshold:
+    type: object
+    required:
+      - is_active
+    properties:
+      is_active:
+        type: boolean
+    example:
+    - is_active: true
+  responseGetShiftSettings:
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        type: array
+        items:
+          type: object
+          required:
+            - id
+            - active
+            - threshold_name
+            - no_of_shifts
+            - sites
+            - shifts
+          properties:
+            id:
+              type: string
+            active:
+              type: boolean
+            threshold_name:
+              type: string
+            no_of_shifts:
+              type: integer
+            sites:
+              type: array
+              items:
+                type: string
+            shifts:
+              type: array
+              items:
+                type: object
+                required:
+                  - shift_name
+                  - active
+                  - days
+                properties:
+                  shift_name:
+                    type: string
+                  active:
+                    type: boolean
+                  days:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - active
+                        - day
+                        - start_time
+                        - duration
+                      properties:
+                        active:
+                          type: boolean
+                        day:
+                          type: string
+                        start_time:
+                          type: string
+                          format: time
+                        duration:
+                          type: string
+    example:
+      data:
+      - id: "1234"
+        active: true
+        shift_plan_name: "McD Shift"
+        no_of_shifts: 2
+        sites:
+          - "1"
+        shifts:
+          - active: true
+            shift_name: "Morning Shift"
+            days:
+              - active: true
+                day: "Monday"
+                start_time: "07:00"
+                duration: "08:00"
+              - active: true
+                day: "Tuesday"
+                start_time: "07:00"
+                duration: "08:00"
+              - active: true
+                day: "Wednesday"
+                start_time: "07:00"
+                duration: "08:00"
+              - active: true
+                day: "Thursday"
+                start_time: "07:00"
+                duration: "08:00"
+              - active: true
+                day: "Friday"
+                start_time: "07:00"
+                duration: "08:00"
+              - active: true
+                day: "Saturday"
+                start_time: "07:00"
+                duration: "08:00"
+              - active: true
+                day: "Sunday"
+                start_time: "07:00"
+                duration: "08:00"
+          - active: true
+            shift_name: "Evening Shift"
+            days:
+              - active: true
+                day: "Monday"
+                start_time: "15:00"
+                duration: "08:00"
+              - active: true
+                day: "Tuesday"
+                start_time: "15:00"
+                duration: "08:00"
+              - active: true
+                day: "Wednesday"
+                start_time: "15:00"
+                duration: "08:00"
+              - active: true
+                day: "Thursday"
+                start_time: "15:00"
+                duration: "08:00"
+              - active: true
+                day: "Friday"
+                start_time: "15:00"
+                duration: "08:00"
+              - active: true
+                day: "Saturday"
+                start_time: "15:00"
+                duration: "08:00"
+              - active: true
+                day: "Sunday"
+                start_time: "15:00"
+                duration: "08:00"
+      - id: "5678"
+        active: true
+        shift_plan_name: "WalMart Shift"
+        no_of_shifts: 1
+        sites:
+          - "41"
+        shifts:
+          - active: true
+            shift_name: "Morning Shift"
+            days:
+              - active: true
+                day: "Monday"
+                start_time: "23:00"
+                duration: "08:00"
+              - active: true
+                day: "Tuesday"
+                start_time: "23:00"
+                duration: "08:00"
+              - active: true
+                day: "Wednesday"
+                start_time: "23:00"
+                duration: "08:00"
+              - active: true
+                day: "Thursday"
+                start_time: "23:00"
+                duration: "08:00"
+              - active: true
+                day: "Friday"
+                start_time: "23:00"
+                duration: "08:00"
+              - active: true
+                day: "Saturday"
+                start_time: "23:00"
+                duration: "08:00"
+              - active: true
+                day: "Sunday"
+                start_time: "23:00"
+                duration: "08:00"
+
+  requestShiftSettings:
+    type: object
+    required:
+      - active
+      - threshold_name
+      - sites
+      - thresholds
+      - default_threshold
+    properties:
+      active:
+        type: boolean
+      threshold_name:
+        type: string
+      sites:
+        type: array
+        items:
+          type: string
+      thresholds:
+        type: array
+        items:
+          type: object
+          required:
+            - model_name
+            - min_duration
+            - max_duration
+          properties:
+            model_name:
+              type: string
+            min_duration:
+              type: string
+            max_duration:
+              type: string
+
+      default_threshold:
+#        type: array
+#        items:
+        type: object
+        required:
+
+          - min_duration
+          - max_duration
+        properties:
+          min_duration:
+            type: string
+          max_duration:
+            type: string
+    example:
+      active: true
+      threshold_name: "McD Shift"
+      sites:
+          - "1"
+          - "41"
+          - "51"
+      thresholds:
+          - model_name: "Taski 1"
+            min_duration: "07:00"
+            max_duration: "08:00"
+          - model_name: "Taski 1"
+            min_duration: "07:00"
+            max_duration: "08:00"
+          - model_name: "Taski 1"
+            min_duration: "07:00"
+            max_duration: "08:00"
+          - model_name: "Taski 1"
+            min_duration: "07:00"
+            max_duration: "08:00"
+          - model_name: "Taski 1"
+            min_duration: "07:00"
+            max_duration: "08:00"
+          - model_name: "Taski 1"
+            min_duration: "07:00"
+            max_duration: "08:00"
+          - model_name: "Taski 1"
+            min_duration: "07:00"
+            max_duration: "08:00"
+      default_threshold:
+        min_duration: "07:00"
+        max_duration: "08:00"
+        
+      
+
+
+  responseShiftSetting200:
+    type: object
+    required:
+      - success
+      - data
+    properties:
+      success:
+        type: boolean
+      data:
+        type: object
+        required:
+          - threshold_id
+        properties:
+          threshold_id:
+            type: string
+    example:
+      success: true
+      data:
+          threshold_id: "123456"
+
+  responseShiftSetting400:
+    type: object
+    required:
+      - success
+      - data
+    properties:
+      success:
+        type: boolean
+      data:
+        type: object
+        required:
+          - message
+          - site_ids
+        properties:
+          message:
+            type: string
+          site_ids:
+            type: array
+            items:
+              type: string
+    example:
+      success: false
+      data:
+        message: "Sites are already associated with another shift"
+        site_ids:
+          - "st001"
+          - "st002"
+
+  requestUpdateShift:
+    type: object
+    required:
+      - id
+      - threshold_name
+      - sites
+      - thresholds
+      - default_threshold
+    properties:
+      id:
+        type: string
+
+      threshold_name:
+        type: string
+      sites:
+        type: array
+        items:
+          type: string
+      thresholds:
+        type: array
+        items:
+          type: object
+          required:
+            - model_name
+            - min_duration
+            - max_duration
+          properties:
+            model_name:
+              type: string
+            min_duration:
+              type: string
+            max_duration:
+              type: string
+
+      default_threshold:
+#        type: array
+#        items:
+        type: object
+        required:
+          - min_duration
+          - max_duration
+        properties:
+          min_duration:
+            type: string
+          max_duration:
+            type: string
+    example:
+      id: "123"
+      active: true
+      threshold_name: "McD Shift"
+      sites:
+          - "1"
+          - "41"
+          - "51"
+      thresholds:
+          - model_name: "Taski 1"
+            min_duration: "07:00"
+            max_duration: "08:00"
+          - model_name: "Taski 1"
+            min_duration: "07:00"
+            max_duration: "08:00"
+          - model_name: "Taski 1"
+            min_duration: "07:00"
+            max_duration: "08:00"
+          - model_name: "Taski 1"
+            min_duration: "07:00"
+            max_duration: "08:00"
+          - model_name: "Taski 1"
+            min_duration: "07:00"
+            max_duration: "08:00"
+          - model_name: "Taski 1"
+            min_duration: "07:00"
+            max_duration: "08:00"
+          - model_name: "Taski 1"
+            min_duration: "07:00"
+            max_duration: "08:00"
+      default_threshold:
+        min_duration: "07:00"
+        max_duration: "08:00"      
+
+  responseUpdateShift:
+    type: object
+    required:
+      - success
+      - data
+    properties:
+      success:
+        type: boolean
+      data:
+        type: object
+        required:
+          - message
+          - id
+        properties:
+          message:
+            type: string
+          id:
+            type: string  
+    example:
+      success: true
+      data:
+        message: Shift updated successfully
+        id: "123"
+      
+  responseDeleteShift:
+    type: object
+    required:
+      - success
+      - data
+    properties:
+      success:
+        type: boolean
+      data:
+        type: object
+        required:
+          - message
+          - id
+        properties:
+          message:
+            type: string
+          id:
+            type: string            
+    example:
+      success: true
+      data:
+        message: Shift Deleted successfully
+        id: "123"
+
+  responceGetThresholdSettings:
+    type: object
+    required:
+      - success
+      - data
+    properties:
+      success:
+        type: boolean
+      data:
+        type: array
+        items:
+          type: object
+          required:
+            - id
+            - active
+            - name
+            - is_deleted
+            - sites
+          properties:
+            id:
+              type: string
+            active:
+              type: boolean
+            name:
+              type: string
+            is_deleted:
+              type: boolean
+            sites:
+              type: array
+              items:
+                type: string
+
+    example:
+      -success: true
+      -data:
+         - id: "1a2b3c4d5e"
+           active: true
+           name: "Threshold Name 1"
+           sites:
+             - "1122"
+             - "2233"
+
+         - id: "0q9w8e7r6t"
+           active: true
+           name: "Threshold Name 2"
+           sites:
+             - "3344"
+             - "4455"
+
+         - id: "5z6x4c7v8b"
+           active: false
+           name: "Threshold Name 3"
+           sites:
+             - "1122"
+
+
+  responceGetSingleThresholdSettings:
+    type: object
+    required:
+      - success
+      - data
+    properties:
+      success:
+        type: boolean
+      data:
+        type: object
+        required:
+          - id
+          - system_id
+          - active
+          - name
+          - sites
+          - production
+          - quality
+          - consumption
+          - cost
+        properties:
+          id:
+            type: string
+          system_id:
+            type: string
+          active:
+            type: boolean
+          name:
+            type: string
+          sites:
+            type: array
+            items:
+              type: string
+          production:
+            type: object
+            required:
+              - linen
+              - loads
+              - occupancy_washer
+              - occupancy_dryer
+            properties:
+              linen:
+                type: object
+                required:
+                  - active
+                  - unit
+                  - threshold
+                properties:
+                  active:
+                    type: boolean
+                  unit:
+                    type: string
+                  threshold:
+                    type: number
+              loads:
+                type: object
+                required:
+                  - active
+                  - threshold
+                properties:
+                  active:
+                    type: boolean
+                  threshold:
+                    type: number
+              occupancy_washer:
+                type: object
+                required:
+                  - active
+                  - threshold_percent
+                properties:
+                  active:
+                    type: boolean
+                  threshold_percent:
+                    type: number
+              occupancy_dryer:
+                type: object
+                required:
+                  - active
+                  - threshold_percent
+                properties:
+                  active:
+                    type: boolean
+                  threshold_percent:
+                    type: number
+          quality:
+            type: object
+            required:
+              - rewashes
+              - aborted
+            properties:
+              rewashes:
+                type: object
+                required:
+                  - active
+                  - threshold
+                  - threshold_percent
+                properties:
+                  active:
+                    type: boolean
+                  threshold:
+                    type: number
+                  threshold_percent:
+                    type: number
+              aborted:
+                type: object
+                required:
+                  - active
+                  - threshold
+                  - threshold_percent
+                properties:
+                  active:
+                    type: boolean
+                  threshold:
+                    type: number
+                  threshold_percent:
+                    type: number
+          consumption:
+            type: object
+            required:
+              - water_consumption
+              - chemical_consumption
+              - energy_consumption_washer
+              - energy_consumption_dryer
+            properties:
+              water_consumption:
+                type: object
+                required:
+                  - active
+                  - unit
+                  - threshold_per_linen
+                  - threshold
+                properties:
+                  active:
+                    type: boolean
+                  unit:
+                    type: string
+                  threshold_per_linen:
+                    type: number
+                  threshold:
+                    type: number
+              chemical_consumption:
+                type: object
+                required:
+                  - active
+                  - unit
+                  - threshold_per_linen
+                  - threshold
+                properties:
+                  active:
+                    type: boolean
+                  unit:
+                    type: string
+                  threshold_per_linen:
+                    type: number
+                  threshold:
+                    type: number
+              energy_consumption_washer:
+                type: object
+                required:
+                  - active
+                  - unit
+                  - threshold_per_linen
+                  - threshold
+                properties:
+                  active:
+                    type: boolean
+                  unit:
+                    type: string
+                  threshold_per_linen:
+                    type: number
+                  threshold:
+                    type: number
+              energy_consumption_dryer:
+                type: object
+                required:
+                  - active
+                  - unit
+                  - threshold_per_linen
+                  - threshold
+                properties:
+                  active:
+                    type: boolean
+                  unit:
+                    type: string
+                  threshold_per_linen:
+                    type: number
+                  threshold:
+                    type: number
+          cost:
+            type: object
+            required:
+              - water_costs
+              - energy_costs
+              - chemical_costs
+            properties:
+              water_costs:
+                type: object
+                required:
+                  - active
+                  - unit
+                  - threshold
+                properties:
+                  active:
+                    type: boolean
+                  unit:
+                    type: string
+                  threshold:
+                    type: number
+              energy_costs:
+                type: object
+                required:
+                  - active
+                  - unit
+                  - threshold
+                properties:
+                  active:
+                    type: boolean
+                  unit:
+                    type: string
+                  threshold:
+                    type: number
+              chemical_costs:
+                type: object
+                required:
+                  - active
+                  - unit
+                  - threshold
+                properties:
+                  active:
+                    type: boolean
+                  unit:
+                    type: string
+                  threshold:
+                    type: number
+    example:
+      data:
+        id: "1a2b3c4d5e"
+        system_id: "a3udjs2s8fhn48sbhak"
+        active: true
+        name: "Threshold Name 1"
+        sites:
+          - "1122"
+          - "2233"
+        production:
+          linen:
+            active: true
+            unit: "kg"
+            threshold: 20
+          loads:
+            active: true
+            threshold: 30
+          occupancy_washer:
+            active: true
+            threshold_percent: 50
+          occupancy_dryer:
+            active: true
+            threshold_percent: 15
+        quality:
+          rewashes:
+            active: true
+            threshold: 10
+            threshold_percent: 20
+          aborted:
+            active: true
+            threshold: 10
+            threshold_percent: 20
+        consumption:
+          water_consumption:
+            active: true
+            unit: "m3"
+            threshold_per_linen: 15
+            threshold: 5
+          chemical_consumption:
+            active: true
+            unit: "L"
+            threshold_per_linen: 15
+            threshold: 5
+          energy_consumption_washer:
+            active: true
+            unit: "kw/h"
+            threshold_per_linen: 15
+            threshold: 5
+          energy_consumption_dryer:
+            active: true
+            unit: "kw/h"
+            threshold_per_linen: 15
+            threshold: 5
+        cost:
+          water_costs:
+            active: true
+            unit: "€"
+            threshold: 20
+          energy_costs:
+            active: true
+            unit: "€"
+            threshold: 20
+          chemical_costs:
+            active: true
+            unit: "€"
+            threshold: 20
+
+  requestThresholdSettings:
+    type: object
+    required:
+      - active
+      - name
+      - sites
+      - production
+      - quality
+      - consumption
+      - cost
+    properties:
+      active:
+        type: boolean
+      name:
+        type: string
+      sites:
+        type: array
+        items:
+          type: string
+      production:
+        type: object
+        required:
+          - linen
+          - loads
+          - occupancy_washer
+          - occupancy_dryer
+        properties:
+          linen:
+            type: object
+            required:
+              - active
+              - unit
+              - threshold
+            properties:
+              active:
+                type: boolean
+              unit:
+                type: string
+              threshold:
+                type: number
+          loads:
+            type: object
+            required:
+              - active
+              - threshold
+            properties:
+              active:
+                type: boolean
+              threshold:
+                type: number
+          occupancy_washer:
+            type: object
+            required:
+              - active
+              - threshold_percent
+            properties:
+              active:
+                type: boolean
+              threshold_percent:
+                type: number
+          occupancy_dryer:
+            type: object
+            required:
+              - active
+              - threshold_percent
+            properties:
+              active:
+                type: boolean
+              threshold_percent:
+                type: number
+      quality:
+        type: object
+        required:
+          - rewashes
+          - aborted
+        properties:
+          rewashes:
+            type: object
+            required:
+              - active
+              - threshold
+              - threshold_percent
+            properties:
+              active:
+                type: boolean
+              threshold:
+                type: number
+              threshold_percent:
+                type: number
+          aborted:
+            type: object
+            required:
+              - active
+              - threshold
+              - threshold_percent
+            properties:
+              active:
+                type: boolean
+              threshold:
+                type: number
+              threshold_percent:
+                type: number
+      consumption:
+        type: object
+        required:
+          - water_consumption
+          - chemical_consumption
+          - energy_consumption_washer
+          - energy_consumption_dryer
+        properties:
+          water_consumption:
+            type: object
+            required:
+              - active
+              - unit
+              - threshold_per_linen
+              - threshold
+            properties:
+              active:
+                type: boolean
+              unit:
+                type: string
+              threshold_per_linen:
+                type: number
+              threshold:
+                type: number
+          chemical_consumption:
+            type: object
+            required:
+              - active
+              - unit
+              - threshold_per_linen
+              - threshold
+            properties:
+              active:
+                type: boolean
+              unit:
+                type: string
+              threshold_per_linen:
+                type: number
+              threshold:
+                type: number
+          energy_consumption_washer:
+            type: object
+            required:
+              - active
+              - unit
+              - threshold_per_linen
+              - threshold
+            properties:
+              active:
+                type: boolean
+              unit:
+                type: string
+              threshold_per_linen:
+                type: number
+              threshold:
+                type: number
+          energy_consumption_dryer:
+            type: object
+            required:
+              - active
+              - unit
+              - threshold_per_linen
+              - threshold
+            properties:
+              active:
+                type: boolean
+              unit:
+                type: string
+              threshold_per_linen:
+                type: number
+              threshold:
+                type: number
+      cost:
+        type: object
+        required:
+          - water_costs
+          - energy_costs
+          - chemical_costs
+        properties:
+          water_costs:
+            type: object
+            required:
+              - active
+              - unit
+              - threshold
+            properties:
+              active:
+                type: boolean
+              unit:
+                type: string
+              threshold:
+                type: number
+          energy_costs:
+            type: object
+            required:
+              - active
+              - unit
+              - threshold
+            properties:
+              active:
+                type: boolean
+              unit:
+                type: string
+              threshold:
+                type: number
+          chemical_costs:
+            type: object
+            required:
+              - active
+              - unit
+              - threshold
+            properties:
+              active:
+                type: boolean
+              unit:
+                type: string
+              threshold:
+                type: number
+    example:
+      active: true
+      name: "Thereshold name"
+      sites:
+        - "1234"
+        - "5678"
+      production:
+        linen:
+          active: true
+          unit: "kg"
+          threshold: 20
+        loads:
+          active: true
+          threshold: 30
+        occupancy_washer:
+          active: true
+          threshold_percent: 50
+        occupancy_dryer:
+          active: true
+          threshold_percent: 15
+      quality:
+        rewashes:
+          active: true
+          threshold: 10
+          threshold_percent: 20
+        aborted:
+          active: true
+          threshold: 10
+          threshold_percent: 20
+      consumption:
+        water_consumption:
+          active: true
+          unit: "m3"
+          threshold_per_linen: 15
+          threshold: 5
+        chemical_consumption:
+          active: true
+          unit: "L"
+          threshold_per_linen: 15
+          threshold: 5
+        energy_consumption_washer:
+          active: true
+          unit: "kw/h"
+          threshold_per_linen: 15
+          threshold: 5
+        energy_consumption_dryer:
+          active: true
+          unit: "kw/h"
+          threshold_per_linen: 15
+          threshold: 5
+      cost:
+        water_costs:
+          active: true
+          unit: "€"
+          threshold: 20
+        energy_costs:
+          active: true
+          unit: "€"
+          threshold: 20
+        chemical_costs:
+          active: true
+          unit: "€"
+          threshold: 20
+
+
+  responseUpdateThresholdSetting200:
+    type: object
+    required:
+      - success
+      - data
+    properties:
+      success:
+        type: boolean
+      data:
+        type: object
+        required:
+          - threshold_id
+        properties:
+          threshold_id:
+            type: string
+    example:
+      success: true
+      data:
+          message: "Threshold updated successfully."
+
+  responseThresholdSetting400:
+    type: object
+    required:
+      - success
+      - data
+    properties:
+      success:
+        type: boolean
+      data:
+        type: object
+        required:
+          - name
+          - sites
+        properties:
+          name:
+            type: object
+            properties:
+              message:
+                type: string
+          sites:
+            type: object
+            properties:
+              message:
+                type: string
+              site_ids:
+                type: array
+                items:
+                  type: string
+    example:
+      success: false
+      data:
+        name:
+          message: "Threshold name already exists"
+        sites:
+          message: "Sites are already associated with another threshold"
+          site_ids:
+            - "1234"
+            - "5678"
+
+  responseDeleteThreshold:
+    type: object
+    required:
+      - success
+      - data
+    properties:
+      success:
+        type: boolean
+      data:
+        type: object
+        required:
+          - message
+        properties:
+          message:
+            type: string
+    example:
+      success: true
+      data:
+        message: Threshold Deleted successfully
