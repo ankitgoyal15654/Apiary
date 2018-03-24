@@ -26,7 +26,7 @@ schemes:
   - https
 consumes:
   - application/json`
-produces:
+ppppp:
   - application/json
 paths:
 
