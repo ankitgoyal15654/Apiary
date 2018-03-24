@@ -4,7 +4,7 @@ info:
   title: "IOC IntelliTrail Settings"
   description: "API Specs for Intellilinen Settings.
                 This will include an API from portal-admin to get all the necessary
-                data for hierarchy dropdown functionality.
+                data for hierardjk<modified changes>chy dropdown functionality.
                 This API will be the same API of portal-admin API
                 '/api/v1/portal-admin/hierarchies/global_account_id'
                 url= http://docs.portaladminconsole.apiary.io/#reference/0/apiv1portal-adminhierarchiesglobalaccountid/get"
