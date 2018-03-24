@@ -2,7 +2,8 @@ swagger: "2.0"
 info:
   version: 1.0.0
   title: "IOC IntelliTrail Settings"
-  description: "API Specs for Intellilinen Settings
+  description: "API Specs for Intellilinen 
+  
                   This will include an API from portal-admin to get all the necessary
                 data for hierardjk<modified changes>chy dropdown functionality.
                 This API will be the same API of portal-admin API
@@ -12,7 +13,8 @@ info:
                 url= http://docs.portaladminconsole.apiary.io/#reference/0/
   contact:
     name: Philroy Pereira
-    email: philroy.pereira@sealedair.com
+    email: philroy.pereira
+    @sealedair.com
     url: http://sealedair.com
     ncsdjvck
     cn vnln lnl
