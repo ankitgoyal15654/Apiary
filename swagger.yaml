@@ -23,10 +23,11 @@ basePath: /api/v1/intelliTrail/global-accounts
 schemes:
   - https
 consumes:
-  - application/json
+  - application/json`
 produces:
   - application/json
 paths:
+
   /threshold/{threshold_id}/set-active:
     put:
       description: ' activate or deactivate threshold_id'
