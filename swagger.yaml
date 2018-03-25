@@ -196,7 +196,7 @@ paths:
           description: Threshold list of sites accessible to the admin user
           schema:
             $ref: '#/definitions/responceGetThresholdSettings'
-
+dnjkhjfjdjfjndjfnjncdvjkcdvnjk
   /{global_account_id}/thresholds/{threshold_id}:
     get:
       description: 'Get single threshold record for a global
