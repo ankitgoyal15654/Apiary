@@ -1,6 +1,6 @@
-<mxfile modified="2021-04-21T15:23:59.899Z" host="app.diagrams.net" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 Edg/89.0.774.77" etag="5g6mEQO2rDhgIm_lOduZ" version="14.6.1" type="github">
+<mxfile modified="2021-04-21T15:27:08.314Z" host="app.diagrams.net" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 Edg/89.0.774.77" etag="RsuSAMP6PpxoU9XkGbIb" version="14.6.1" type="github">
   <diagram id="Ht1M8jgEwFfnCIfOTk4-" name="Page-1">
-    <mxGraphModel dx="2752" dy="689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="3016" dy="803" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -133,9 +133,6 @@
         <mxCell id="RkXGPooS4eCIDJTqoEML-47" value="S3" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="258" y="787.16" width="170" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="RkXGPooS4eCIDJTqoEML-48" value="Aetna SMTP for approver/checker functionality" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="970" y="283" width="170" height="40" as="geometry" />
-        </mxCell>
         <mxCell id="RkXGPooS4eCIDJTqoEML-49" value="Fargate(ECS)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="573.1600000000001" y="441" width="170" height="20" as="geometry" />
         </mxCell>
@@ -201,6 +198,15 @@
               <mxPoint x="354" y="80" />
               <mxPoint x="620" y="80" />
               <mxPoint x="620" y="172" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RkXGPooS4eCIDJTqoEML-121" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="RkXGPooS4eCIDJTqoEML-68" target="RkXGPooS4eCIDJTqoEML-38">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="332" y="10" />
+              <mxPoint x="930" y="10" />
+              <mxPoint x="930" y="399" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -271,7 +277,7 @@
         </mxCell>
         <mxCell id="RkXGPooS4eCIDJTqoEML-82" value="" style="endArrow=classic;html=1;fillColor=#330000;" edge="1" parent="1" target="RkXGPooS4eCIDJTqoEML-17">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="50" y="170" as="sourcePoint" />
+            <mxPoint x="50" y="168" as="sourcePoint" />
             <mxPoint y="250" as="targetPoint" />
           </mxGeometry>
         </mxCell>
@@ -345,6 +351,15 @@
         </mxCell>
         <mxCell id="RkXGPooS4eCIDJTqoEML-93" value="" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.application_load_balancer;fillColor=#F58534;gradientColor=none;" vertex="1" parent="1">
           <mxGeometry x="250" y="347" width="69" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="RkXGPooS4eCIDJTqoEML-122" value="Aetna SMTP server" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="295.5" y="202.5" width="113.5" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="RkXGPooS4eCIDJTqoEML-124" value="Application Load balancer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="227.75" y="425" width="113.5" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="RkXGPooS4eCIDJTqoEML-125" value="Lambda" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="253.5" width="113.5" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
