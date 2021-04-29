@@ -1,4 +1,4 @@
-<mxfile modified="2021-04-29T07:52:27.956Z" host="app.diagrams.net" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.49" etag="cu_7iaMm6CMn_WiRczvT" version="14.6.6" type="github">
+<mxfile modified="2021-04-29T07:53:53.073Z" host="app.diagrams.net" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.49" etag="Mmua0u45RWTY1ve-ge5z" version="14.6.6" type="github">
   <diagram id="Ht1M8jgEwFfnCIfOTk4-" name="Page-1">
     <mxGraphModel dx="2190" dy="567" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -171,8 +171,8 @@
         <mxCell id="RkXGPooS4eCIDJTqoEML-56" value="" style="html=1;dashed=0;whitespace=wrap;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon;prIcon=user" parent="1" vertex="1">
           <mxGeometry x="-389" y="508" width="79" height="62" as="geometry" />
         </mxCell>
-        <mxCell id="RkXGPooS4eCIDJTqoEML-57" value="IBM &lt;br&gt;DPGW" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="-292" y="256" width="90" height="27" as="geometry" />
+        <mxCell id="RkXGPooS4eCIDJTqoEML-57" value="IBM DPGW" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-292" y="256" width="142" height="27" as="geometry" />
         </mxCell>
         <mxCell id="RkXGPooS4eCIDJTqoEML-58" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://3a78y231asrh2o54ej2jlmx5-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/ibm-datapower.png;" parent="1" vertex="1">
           <mxGeometry x="-270.5" y="213.5" width="80.5" height="45.08" as="geometry" />
