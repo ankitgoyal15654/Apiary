@@ -1,6 +1,6 @@
-<mxfile modified="2021-04-29T08:03:13.048Z" host="app.diagrams.net" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.49" etag="4qgRaLyMMyYiF-O9dJ1T" version="14.6.6" type="github">
+<mxfile modified="2021-04-29T08:06:50.141Z" host="app.diagrams.net" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.49" etag="4kfeax30Pv9nuTwggHYS" version="14.6.6" type="github">
   <diagram id="Ht1M8jgEwFfnCIfOTk4-" name="Page-1">
-    <mxGraphModel dx="2905" dy="964" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="2409" dy="689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -172,7 +172,10 @@
           <mxGeometry x="-389" y="508" width="79" height="62" as="geometry" />
         </mxCell>
         <mxCell id="RkXGPooS4eCIDJTqoEML-57" value="IBM DPGW" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="-292" y="256" width="142" height="27" as="geometry" />
+          <mxGeometry x="-392" y="215" width="142" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="sbMJLdRSD7Ct-1f-CanL-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.001;entryY=0.191;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="RkXGPooS4eCIDJTqoEML-58" target="RkXGPooS4eCIDJTqoEML-2">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="RkXGPooS4eCIDJTqoEML-58" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://3a78y231asrh2o54ej2jlmx5-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/ibm-datapower.png;" parent="1" vertex="1">
           <mxGeometry x="-270.5" y="213.5" width="80.5" height="45.08" as="geometry" />
@@ -313,9 +316,6 @@
         <mxCell id="RkXGPooS4eCIDJTqoEML-88" value="API gateway will be requested through DPGW by Amplfy" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-237" y="132.5" width="113.5" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="RkXGPooS4eCIDJTqoEML-89" value="request to AD through&amp;nbsp; DPGW" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="-425" y="215" width="90" height="27" as="geometry" />
-        </mxCell>
         <mxCell id="RkXGPooS4eCIDJTqoEML-90" value="Validating user through AZure AD" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-250" y="306.3" width="90" height="27" as="geometry" />
         </mxCell>
@@ -359,16 +359,20 @@
         <mxCell id="RkXGPooS4eCIDJTqoEML-130" value="only authenticated user can log in" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-125" y="447.5" width="85" height="35.5" as="geometry" />
         </mxCell>
-        <mxCell id="sJsFVRFpZeUf0ca5dLis-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.007;entryY=0.828;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="RkXGPooS4eCIDJTqoEML-2" edge="1">
+        <mxCell id="sJsFVRFpZeUf0ca5dLis-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-289.46000000000004" y="827" as="sourcePoint" />
+            <mxPoint x="-361.93000000000006" y="102" as="sourcePoint" />
+            <mxPoint x="-250" y="210" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-250" y="102" />
+            </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="sbMJLdRSD7Ct-1f-CanL-3" value="logos/other data information" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-409.5" y="800" width="120" height="60" as="geometry" />
+          <mxGeometry x="-453.47" y="75" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="sbMJLdRSD7Ct-1f-CanL-5" value="CVS data center" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="-386.19" y="870" width="73.38" height="20" as="geometry" />
+        <mxCell id="sbMJLdRSD7Ct-1f-CanL-5" value="On premises data" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-432.26000000000005" y="147.5" width="73.38" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
