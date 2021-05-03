@@ -1,6 +1,6 @@
-<mxfile modified="2021-04-29T08:09:07.111Z" host="app.diagrams.net" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.49" etag="4aUiiYqKhBpdySYmpMuJ" version="14.6.6" type="github">
+<mxfile modified="2021-05-03T06:51:22.034Z" host="app.diagrams.net" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.51" etag="gsI7cXeJvHrmNlo3LW1T" version="14.6.9" type="github">
   <diagram id="Ht1M8jgEwFfnCIfOTk4-" name="Page-1">
-    <mxGraphModel dx="4062" dy="1607" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="3016" dy="803" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -174,7 +174,7 @@
         <mxCell id="RkXGPooS4eCIDJTqoEML-57" value="IBM DPGW" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-392" y="215" width="142" height="27" as="geometry" />
         </mxCell>
-        <mxCell id="sbMJLdRSD7Ct-1f-CanL-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.001;entryY=0.191;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="RkXGPooS4eCIDJTqoEML-58" target="RkXGPooS4eCIDJTqoEML-2">
+        <mxCell id="sbMJLdRSD7Ct-1f-CanL-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.001;entryY=0.191;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="RkXGPooS4eCIDJTqoEML-58" target="RkXGPooS4eCIDJTqoEML-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="RkXGPooS4eCIDJTqoEML-58" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://3a78y231asrh2o54ej2jlmx5-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/ibm-datapower.png;" parent="1" vertex="1">
@@ -269,7 +269,7 @@
           <mxGeometry x="-30" y="150" width="120" height="10" as="geometry" />
         </mxCell>
         <mxCell id="RkXGPooS4eCIDJTqoEML-79" value="Using SAML" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="-250" y="492" width="60" height="28.5" as="geometry" />
+          <mxGeometry x="-280" y="285.75" width="100" height="28.5" as="geometry" />
         </mxCell>
         <mxCell id="RkXGPooS4eCIDJTqoEML-80" value="JWT Verification" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-51" y="337" width="60" height="27" as="geometry" />
@@ -368,16 +368,16 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="sbMJLdRSD7Ct-1f-CanL-3" value="logos/other data information" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="sbMJLdRSD7Ct-1f-CanL-3" value="logos/other data information" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-453.47" y="75" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="sbMJLdRSD7Ct-1f-CanL-5" value="On premises data" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="sbMJLdRSD7Ct-1f-CanL-5" value="On premises data" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-432.26000000000005" y="147.5" width="73.38" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="sbMJLdRSD7Ct-1f-CanL-11" value="data from CVS&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="sbMJLdRSD7Ct-1f-CanL-11" value="data from CVS&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-333.47" y="110" width="73.38" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="sbMJLdRSD7Ct-1f-CanL-12" value="On premises data through DPGW&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="sbMJLdRSD7Ct-1f-CanL-12" value="On premises data through DPGW&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-233" y="258.58" width="100" height="20" as="geometry" />
         </mxCell>
       </root>
